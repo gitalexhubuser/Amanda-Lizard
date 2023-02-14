@@ -34,8 +34,8 @@ def run():
             Send_to_zazerkalie()
 
         # test
-        if (h == 21 and m == 9 and s == 0):
-            Send_to_zazerkalie()
+        # if (h == 21 and m == 9 and s == 0):
+            # Send_to_zazerkalie()
 
         time.sleep(1)
 
