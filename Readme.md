@@ -1,4 +1,5 @@
 <!-- https://gitflic.ru/project/ilovetiktiok/amanda-lizard -->
+<!-- https://github.com/gitalexhubuser/Amanda-Lizard -->
 
 # Бот пишет "человек слаб" в случайное время, каждый день
 
