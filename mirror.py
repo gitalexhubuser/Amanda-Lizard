@@ -1,10 +1,20 @@
 import os, time, requests, random
-# from lib_1 import TOKEN
+from lib_1 import * # в конце - поменять!!!
 
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
-print("TOKEN: ", TOKEN) # github
+# import configparser
+import json
+from telethon import TelegramClient, events
+# from telethon.errors import SessionPasswordNeededError
 
-CHAT_ID = -1001670463029 # twitch_clipz (от Самой Аманды) https://t.me/c/1670463029/22766 + -100
+# from telethon.tl.functions.messages import (GetHistoryRequest)
+# from telethon.tl.types import (
+# PeerChannel
+# )
+
+# TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
+
+# CHAT_ID = -1001670463029 # work
+CHAT_ID = -1001744761688 # test
 text_for_send = "man is weak" # человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
@@ -17,6 +27,11 @@ choice3 = random.choice(random_time_list3)
 def Send_to_zazerkalie():
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={text_for_send}")
     # responce = req.json() # print(responce)
+
+# chat gpt
+# def Get_text_of_last_message():
+#     last_message = Bot.get_updates(offset=-1, limit=1, timeout=10)[0] 
+#     print(last_message.message.text)
 
 def run():
     while True:
@@ -39,5 +54,30 @@ def run():
 
         time.sleep(1)
 
+
+# Create the client and connect
+# client = TelegramClient(username, api_id, api_hash)
+# client.start()
+# print("1 Client Created")
+
+
+
+client = TelegramClient('lol2', API_ID, API_HASH).start(bot_token=TOKEN)
+
+@client.on(events.NewMessage(chats=CHAT_ID))
+async def normal_handler(event):
+
+    # a = event.message.to_dict()["date"]
+    id = event.message.to_dict()["id"]
+    message = event.message.to_dict()["message"]
+    if "миша" in message.lower():
+        print('Но я не Миша')
+        # await client.forward_messages(CHAT_ID, id)
+
+
+    
+client.run_until_disconnected()
+
 if __name__ == '__main__':
+    # Get_text_of_last_message()
     run()
