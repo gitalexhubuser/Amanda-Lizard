@@ -3,7 +3,7 @@ from lib_1 import * # в конце - поменять!!!
 
 from telethon import TelegramClient, events
 
-# TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
+TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
 
 CHAT_ID = -1001670463029 # work
 # CHAT_ID = -1001744761688 # test
@@ -43,7 +43,7 @@ def run():
         time.sleep(1)
 
 
-client = TelegramClient('kapec', API_ID, API_HASH).start(bot_token=TOKEN)
+client = TelegramClient('amanda', API_ID, API_HASH).start(bot_token=TOKEN)
 
 @client.on(events.NewMessage(chats=CHAT_ID))
 async def normal_handler(event):
