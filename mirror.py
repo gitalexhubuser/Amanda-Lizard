@@ -5,7 +5,7 @@ TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 print("TOKEN: ", TOKEN) # github
 
 CHAT_ID = -1001670463029 # twitch_clipz (от Самой Аманды) https://t.me/c/1670463029/22766 + -100
-text_for_send = "человек слаб"
+text_for_send = "man is weak" # человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
 random_time_list2 = [11, 12, 13, 14]
