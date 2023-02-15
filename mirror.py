@@ -62,22 +62,25 @@ def run():
 
 
 
-client = TelegramClient('lol2', API_ID, API_HASH).start(bot_token=TOKEN)
+client = TelegramClient('kapec', API_ID, API_HASH).start(bot_token=TOKEN)
 
 @client.on(events.NewMessage(chats=CHAT_ID))
 async def normal_handler(event):
 
-    # a = event.message.to_dict()["date"]
-    id = event.message.to_dict()["id"]
+    # # a = event.message.to_dict()["date"]
+    # id = event.message.to_dict()["id"]
     message = event.message.to_dict()["message"]
     if "миша" in message.lower():
-        print('Но я не Миша')
-        # await client.forward_messages(CHAT_ID, id)
+        await event.reply('Но я не Миша!')
 
-
+# @client.on(events.NewMessage(pattern="123"))
+# @client.on(events.NewMessage(pattern="[М|м][И|и][Ш|ш][а|а]"))
+# async def start (event):
+    # await event.respond("456")
+    # requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={4456}")
+    # await event.reply('Но я не Миша!')
     
 client.run_until_disconnected()
 
-if __name__ == '__main__':
-    # Get_text_of_last_message()
-    run()
+# if __name__ == '__main__':
+    # run()
