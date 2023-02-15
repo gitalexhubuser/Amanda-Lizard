@@ -17,7 +17,23 @@ https://t.me/c/1670463029/22766 и добавить -100 в начало
 # чат ID "Зазеркалья"
 CHAT_ID = -1001670463029
 
+# чат ID для тестов
+CHAT_ID = -1001744761688
+
 # война с CMD
 set TELEGRAM_BOT_TOKEN="123" # без пробелов после = !!! # https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html
 echo %TELEGRAM_BOT_TOKEN%
 cd /D "E:\YandexDisk\Python\[2023] Amanda Lizard\"# Amanda-Lizard
+
+# TASK 2
+<!-- модифицируй бота следующим образом:  -->
+<!-- бот отлавливает все сообщения в этом чате  -->
+<!-- со словом Миша  -->
+и пишет в ответ отправителю 
+"но я не Миша"@
+
+# требуемые либки
+pip install python-telegram-bot --upgrade
+
+pip install telethon
+документация https://docs.telethon.dev/en/stable/
