@@ -1,40 +1,41 @@
-<!-- https://gitflic.ru/project/ilovetiktiok/amanda-lizard -->
-<!-- https://github.com/gitalexhubuser/Amanda-Lizard -->
+# AMANDA LIZARD
+[![img1](https://i.imgur.com/iEhVQbu.png)](https://t.me/c/1670463029/22981)
+__TASK 1:__ Бот пишет __"человек слаб"__ в случайное время, каждый день!
+[![img2](https://i.imgur.com/XGysCKv.png)](https://t.me/c/1670463029/22970)
+__TASK 2:__ Бот отлавливает все сообщения в [этом чате](https://t.me/+KX4rjiQrjpc2NjIy) со словом [Миша](https://regex101.com/) и пишет в ответ отправителю: __"Но я не Миша!"__
 
 # TASK 1
-Бот пишет "человек слаб" в случайное время, каждый день
-[![N|Solid](https://i.imgur.com/iEhVQbu.png)](https://t.me/+KX4rjiQrjpc2NjIy)
+## Узнать chat id __"открытого канала"__
+- [Сайт](https://lavrynenko.com/get_id_from_telegram.php)
+- https://api.telegram.org/bot TOKEN /getChat?chat_id=@twitch_clipz
 
-## узнать chat id "открытого канала"
-1) [Сайт](https://lavrynenko.com/get_id_from_telegram.php)ом
-2) https://api.telegram.org/bot TOKEN /getChat?chat_id=@twitch_clipz
+## Узнать chat id __"закрытого канала"__
+- скопировать https://t.me/c/1670463029/1
+- прибавить __-100__ в начало к 1670463029
+- получим: -1001670463029
 
-## узнать chat id "закрытого канала"
-https://t.me/c/1670463029/22766 и добавить -100 в начало
-<!-- скопировать ссылку на пост и прибавить 100 в начало -->
-<!-- 1670463029 -->
-<!-- -100 1670463029 -->
+## Чат ID
+| Chat ID | Канал |
+| ------ | ------ |
+| -1001670463029 | Зазеркалье |
+| -1001744761688 | Тестовый |
 
-## чат ID "Зазеркалья"
+## CMD
+Виртуальные переменные среды [гайд](https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html)
 ```sh
-CHAT_ID = -1001670463029
+set TELEGRAM_BOT_TOKEN="123"
+echo %TELEGRAM_BOT_TOKEN%
+```
+> __Важно__: без `пробелов` после символа равно!
+
+Перейти в папку с проектом:
+```sh
+cd /D "E:\YandexDisk\Python\[2023] Amanda Lizard\"# Amanda-Lizard
 ```
 
-## чат ID для тестов
-CHAT_ID = -1001744761688
-
-## война с CMD
-set TELEGRAM_BOT_TOKEN="123" # без пробелов после = !!! # https://www3.ntu.edu.sg/home/ehchua/programming/howto/Environment_Variables.html
-echo %TELEGRAM_BOT_TOKEN%
-cd /D "E:\YandexDisk\Python\[2023] Amanda Lizard\"# Amanda-Lizard
-
-
-## TASK 2
-<!-- модифицируй бота следующим образом:  -->
-<!-- бот отлавливает все сообщения в этом чате  -->
-со словом Миша  https://regex101.com/
-<!-- и пишет в ответ отправителю  -->
-<!-- "но я не Миша"@ -->
-
-# требуемые либки
+# TASK 2
+Требуемые либки:
+```sh
 pip install python-telegram-bot --upgrade
+```
+
