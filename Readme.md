@@ -5,7 +5,7 @@
 Бот пишет "человек слаб" в случайное время, каждый день
 
 ## узнать chat id "открытого канала"
-1) [Сайт]ом(https://lavrynenko.com/get_id_from_telegram.php)
+1) [Сайт](https://lavrynenko.com/get_id_from_telegram.php)ом
 2) https://api.telegram.org/bot TOKEN /getChat?chat_id=@twitch_clipz
 
 ## узнать chat id "закрытого канала"
