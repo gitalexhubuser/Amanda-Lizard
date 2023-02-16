@@ -1,12 +1,10 @@
-import os, time, requests, random
+import time, requests, random
 from lib_1 import * # в конце - поменять!!!
 
-from telethon import TelegramClient, events
+# TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
 
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
-
-CHAT_ID = -1001670463029 # work
-# CHAT_ID = -1001744761688 # test
+# CHAT_ID = -1001670463029 # work
+CHAT_ID = -1001744761688 # test
 text_for_send = "man is weak" # человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
@@ -41,18 +39,6 @@ def run():
             # Send_to_zazerkalie()
 
         time.sleep(1)
-
-
-client = TelegramClient('amanda', API_ID, API_HASH).start(bot_token=TOKEN)
-
-@client.on(events.NewMessage(chats=CHAT_ID))
-async def normal_handler(event):
-    message = event.message.to_dict()["message"]
-    if "миша" in message.lower():
-        await event.reply('Но я не Миша!')
-
-client.run_until_disconnected()
-
 
 
 if __name__ == '__main__':
