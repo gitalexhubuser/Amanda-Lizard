@@ -1,6 +1,6 @@
 import time, requests, random, asyncio
-from telegram.ext import Updater, CommandHandler, MessageHandler, filters
-# import telegram
+# from telegram.ext import Updater, CommandHandler, MessageHandler, filters
+import telegram
 import logging
 
 logging.basicConfig(filename="E:\YandexDisk\Python\[2023] Amanda Lizard\log.log", level=logging.DEBUG)
@@ -52,20 +52,27 @@ def greet(update, context):
     # print("Вызывал /start") # /start
     # update.message.reply_text(text)
 
-def task2():
-    print("1")
-    logging.info("1й")
+async def task2():
+    bot = telegram.Bot(TOKEN)
+    async with bot:
+        # print(await bot.get_me())
+        print((await bot.get_updates())[2])
 
-    mybot = Updater(TOKEN, update_queue=asyncio.Queue)
+# def task2():
+#     print("1")
+#     logging.info("1й")
 
-    # dp = mybot.dispatcher
-    # mybot.add_handler(CommandHandler("start", greet))
-    mybot.MessageHandler(filters.Text , greet)
+#     mybot = Updater(TOKEN, update_queue=asyncio.Queue)
 
-    mybot.start_polling()
+#     # dp = mybot.dispatcher
+#     # mybot.add_handler(CommandHandler("start", greet))
+#     mybot.MessageHandler(filters.Text , greet)
+
+#     mybot.start_polling()
 
 
 
 if __name__ == '__main__':
-    task2()
+    # task2()
+    asyncio.run(task2())
     task1()
