@@ -3,6 +3,7 @@
 
 # TASK 1
 Бот пишет "человек слаб" в случайное время, каждый день
+[![N|Solid](https://i.imgur.com/iEhVQbu.png)](https://t.me/+KX4rjiQrjpc2NjIy)
 
 ## узнать chat id "открытого канала"
 1) [Сайт](https://lavrynenko.com/get_id_from_telegram.php)ом
