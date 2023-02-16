@@ -18,6 +18,7 @@ def Send_to_zazerkalie():
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={text_for_send}")
 
 
+# await update.message.reply_text("I'm sorry Dave I'm afraid I can't do that.")
 
 def run():
     while True:
