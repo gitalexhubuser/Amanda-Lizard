@@ -1,15 +1,16 @@
-import time, requests, random
-from telegram.ext import MessageHandler, filters, ApplicationBuilder
+import time, requests, random, asyncio
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, ApplicationBuilder, ContextTypes
+# import telegram
 import logging
 
-logging.basicConfig(filename="E:\YandexDisk\Python\[2023] Amanda Lizard\log.log", level=logging.ERROR)
+logging.basicConfig(filename="E:\YandexDisk\Python\[2023] Amanda Lizard\log.log", level=logging.INFO)
 # logging.basicConfig(filename="log.log", level=logging.INFO) WARNING  ERROR CRITICAL
 
 from settings import * # в конце - поменять!!!
 # TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
 
 # CHAT_ID = -1001670463029 # work
-CHAT_ID = -1001729154400 # test
+CHAT_ID = -1001744761688 # test
 text_for_send = "man is weak" # человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
@@ -47,33 +48,31 @@ def task1():
         time.sleep(1)
 
 
+def greet(update, context):
+    # print(update)
+    chat = update.message.chat.id
+    chat1 = update.message.chat
+    text = update.message.text
+    print("chat", chat, type(chat))
+    print("chat", chat1, type(chat1))
+    print("text", text)
+ 
 
-
-
-
-async def message_handler(update, context):
-    print("update:", update)
-    # print(update.message.chat.id) -1001670463029
-
-    # if update.message.chat.title == "Зазеркалье твича":
-    if update.message.chat.id == CHAT_ID:
-        user_message = update.message.text
-        print("0 user_message:", user_message)
-        print("0 user_message:", member.full_name)
-
-        if "миша" in user_message.lower():
-            await update.message.reply_text('Но я не Миша!')
+    # if chat == CHAT_ID:
+        # print("==")
+        # print("text:", text)
     # else:
-    #     print("22:", update.message.chat.username)
-    #     print("33:", update.message.date)
+        # print("Я ловлю только ТАМ а не тут ", update.message.chat.id)
 
-    #     print("1:", update.message.from_user.first_name)
-    #     print("2:", update.message.from_user.id) # effective_chat
-    #     print("3:", update.message.from_user.is_bot)
-    #     print("4:", update.message.from_user.last_name)
-    #     print("5:", update.message.from_user.username)
-    #     print(" ")
+    # print("Вызывал /start") # /start
+    # update.message.reply_text(text)
+    if "миша" in text.lower():
+        update.message.reply_text("Но я не Миша!")
 
+def message_handler(update, context):
+    user_message = update.message.text
+    print(user_message, user_message)
+    update.message.reply_text("I'm sorry Dave I'm afraid I can't do that.")
 
     
 # async def task2():
@@ -89,10 +88,12 @@ async def message_handler(update, context):
 def task2():
     print("1")
     logging.info("1й")
+    # updater = Updater()
+    # dispatcher = updater.dispatcher
+    # updater.start_polling()
 
     application = ApplicationBuilder().token(TOKEN).build()
-    # start_handler = MessageHandler(filters.TEXT, message_handler)
-    start_handler = MessageHandler(filters.StatusUpdate.NEW_CHAT_PHOTO, message_handler)
+    start_handler = MessageHandler(filters.TEXT, message_handler)
     application.add_handler(start_handler)
     application.run_polling()
 
