@@ -72,6 +72,9 @@ def greet(update, context):
 def message_handler(update, context):
     user_message = update.message.text
     print(user_message, user_message)
+    update.message.reply_text("I'm sorry Dave I'm afraid I can't do that.")
+
+    
 # async def task2():
 #     bot = telegram.Bot(TOKEN)
 #     async with bot:
