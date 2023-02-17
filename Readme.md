@@ -6,8 +6,9 @@ __TASK 2:__ Бот отлавливает все сообщения в [этом
 
 # TASK 1
 ## Узнать chat id __"открытого канала"__
-- [Сайт](https://lavrynenko.com/get_id_from_telegram.php)
+- [Сайт 1](https://lavrynenko.com/get_id_from_telegram.php)
 - https://api.telegram.org/bot TOKEN /getChat?chat_id=@twitch_clipz
+- [Сайт 2](https://xcoding.guru/chat-id-telegram)
 
 ## Узнать chat id __"закрытого канала"__
 - скопировать https://t.me/c/1670463029/1

@@ -85,14 +85,14 @@ def message_handler(update, context):
 def task2():
     print("1")
     logging.info("1й")
-    updater = Updater("BOT", use_context=True)
-    dispatcher = updater.dispatcher
-    updater.start_polling()
+    # updater = Updater()
+    # dispatcher = updater.dispatcher
+    # updater.start_polling()
 
-    # application = ApplicationBuilder().token(TOKEN).build()
-    # start_handler = MessageHandler(filters.TEXT, greet)
-    # application.add_handler(start_handler)
-    # application.run_polling()
+    application = ApplicationBuilder().token(TOKEN).build()
+    start_handler = MessageHandler(filters.TEXT, message_handler)
+    application.add_handler(start_handler)
+    application.run_polling()
 
 
 if __name__ == '__main__':

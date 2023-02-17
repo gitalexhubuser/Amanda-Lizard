@@ -1,7 +1,6 @@
 # import os
 
-TOKEN = "5959614783:AAFKrPTe56Lg1lzh7RQA50hqfxTQRJXo6MA" #tg @amanda_lizard_bot
-
+TOKEN = "5959614783:AAG11VOEJL4UEwg8EW8r_jpwwRmZGZyyNTs" #tg @amanda_lizard_bot
 CHAT_ID = -1001744761688 # @adobepremierpro2022 # для тестов
 
 # print("The keys and values of all environment variables:")
