@@ -1,9 +1,9 @@
 import time, requests, random, asyncio
-# from telegram.ext import Updater, CommandHandler, MessageHandler, filters
-import telegram
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, ApplicationBuilder, ContextTypes
+# import telegram
 import logging
 
-logging.basicConfig(filename="E:\YandexDisk\Python\[2023] Amanda Lizard\log.log", level=logging.DEBUG)
+logging.basicConfig(filename="E:\YandexDisk\Python\[2023] Amanda Lizard\log.log", level=logging.INFO)
 # logging.basicConfig(filename="log.log", level=logging.INFO) WARNING  ERROR CRITICAL
 
 from settings import * # в конце - поменять!!!
@@ -26,6 +26,7 @@ def Send_to_zazerkalie():
 
 def task1():
     logging.info("2й")
+    print("2й")
     while True:
         current_time = time.localtime()
         h, m, s = current_time.tm_hour, current_time.tm_min, current_time.tm_sec
@@ -46,33 +47,55 @@ def task1():
 
         time.sleep(1)
 
+
 def greet(update, context):
+    # print(update)
+    chat = update.message.chat.id
+    chat1 = update.message.chat
     text = update.message.text
-    print("text:", text)
+    print("chat", chat, type(chat))
+    print("chat", chat1, type(chat1))
+    print("text", text)
+ 
+
+    # if chat == CHAT_ID:
+        # print("==")
+        # print("text:", text)
+    # else:
+        # print("Я ловлю только ТАМ а не тут ", update.message.chat.id)
+
     # print("Вызывал /start") # /start
     # update.message.reply_text(text)
+    if "миша" in text.lower():
+        update.message.reply_text("Но я не Миша!")
 
-async def task2():
-    bot = telegram.Bot(TOKEN)
-    async with bot:
-        # print(await bot.get_me())
-        print((await bot.get_updates())[2])
+def message_handler(update, context):
+    user_message = update.message.text
+    print(user_message, user_message)
+# async def task2():
+#     bot = telegram.Bot(TOKEN)
+#     async with bot:
+#         print(await bot.get_me())
+#         print((await bot.get_updates())[0])
+#         await bot.send_message(text='Hi John!', chat_id=CHAT_ID)
+#         print(await bot.get_my_default_administrator_rights(CHAT_ID))
+#         print(await bot.get_chat_administrators(chat_id=-1001670463029))
+#         print(await bot.get_chat_member_count(chat_id=-1001670463029))
 
-# def task2():
-#     print("1")
-#     logging.info("1й")
+def task2():
+    print("1")
+    logging.info("1й")
+    updater = Updater("BOT", use_context=True)
+    dispatcher = updater.dispatcher
+    updater.start_polling()
 
-#     mybot = Updater(TOKEN, update_queue=asyncio.Queue)
-
-#     # dp = mybot.dispatcher
-#     # mybot.add_handler(CommandHandler("start", greet))
-#     mybot.MessageHandler(filters.Text , greet)
-
-#     mybot.start_polling()
-
+    # application = ApplicationBuilder().token(TOKEN).build()
+    # start_handler = MessageHandler(filters.TEXT, greet)
+    # application.add_handler(start_handler)
+    # application.run_polling()
 
 
 if __name__ == '__main__':
-    # task2()
-    asyncio.run(task2())
+    task2()
+    # asyncio.run(task2())
     task1()
