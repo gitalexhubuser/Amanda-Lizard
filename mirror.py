@@ -1,7 +1,7 @@
-import time, requests, random
+import os, time, requests, random
 from telegram.ext import MessageHandler, filters, ApplicationBuilder
-from settings import * # в конце - поменять!!!
-# TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
+# from settings import * # в конце - поменять!!!
+TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
 
 
 CHAT_ID = -1001670463029 # work
