@@ -1,3 +1,4 @@
 # pip freeze
 # pip3 install -r ./requirements.txt
-pip install gtts
+# pip install gtts
+pip install pocketsphinx
