@@ -1,4 +1,5 @@
 # AMANDA LIZARD
+## Описание
 [![img1](https://i.imgur.com/iEhVQbu.png)](https://t.me/c/1670463029/22981)
 __TASK 1:__ Бот пишет __"человек слаб"__ в случайное время, каждый день!
 [![img2](https://i.imgur.com/XGysCKv.png)](https://t.me/c/1670463029/22970)
