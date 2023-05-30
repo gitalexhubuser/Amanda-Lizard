@@ -5,6 +5,8 @@
 
 ---
 
+- [ ] pep 8 https://peps.python.org/pep-0008/
+
 ## Task-3
 я хочу прикрутить это к клипам
 
