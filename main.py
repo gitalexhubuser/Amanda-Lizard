@@ -1,25 +1,19 @@
+import json, pyaudio
+from vosk import Model, KaldiRecognizer
 import os
-from gtts import gTTS #pip install gtts
-import speech_recognition as sr # pip install SpeechRecognition #pip install pyaudio
+import wave
+import json
 
+# либы от сюда https://alphacephei.com/vosk/models
+model = Model(r"O:\PythonProjects\Amanda-Lizard\vosk-model-small-ru-0.22")
+recognizer = KaldiRecognizer(model, 16000)
 
+mic = pyaudio.PyAudio()
+stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True,  frames_per_buffer=8192)
 
-# from gtts import gTTS #pip install gtts
-# import speech_recognition as sr #pip install SpeechRecognition #pip install pyaudio
-
-def JarvisRecord(audio_file):
-    r = sr.Recognizer()
-    with sr.AudioFile(audio_file) as source:
-        audio = r.record(source)
-    try:
-        voice_result = r.recognize_google(audio, show_all=True, language="ru-RU")
-        ts = voice_result['alternative'][0]['transcript'].lower() # transcript_value
-        print("Gotham: распознал следующие слова:", ts)
-        # print("Gotham: распознал следующие слова:", voice_result)
-    except sr.UnknownValueError:
-        print('Gotham: Не удалось распознать аудио')
-
-if __name__ == '__main__':
-    # JarvisRecord("videoconvertU4ewLfb.wav")
-    # JarvisRecord("ExquisiteSmoothPorcupineCurseLit-va5UBQYvWaE4sw8F.wav")
-    JarvisRecord("reduced.wav")
+while True:
+    data = stream.read(4096)
+    if recognizer.AcceptWaveform(data):
+        text = recognizer.Result()
+        print(text)
+        print(text[14:-3])
