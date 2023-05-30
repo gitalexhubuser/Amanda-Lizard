@@ -1,3 +1,4 @@
 # pip freeze
 # pip3 install -r ./requirements.txt
-pip install gtts
+python-telegram-bot==20.1
+requests==2.27.1
