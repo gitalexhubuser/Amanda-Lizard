@@ -1,6 +1,5 @@
 # Amanda Lizard
 
-
 ## Task 1
 
 [![img1](https://i.imgur.com/iEhVQbu.png)](https://t.me/c/1670463029/22981)
