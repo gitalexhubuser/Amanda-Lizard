@@ -29,4 +29,4 @@
 # Ссылки
 | Описание | Ссылка |
 | ------ | ------ |
-Репо: | [github.com/gitalexhubuser/Amanda-Lizard]https://github.com/gitalexhubuser/Amanda-Lizard)
+Репо: | [github.com/gitalexhubuser/Amanda-Lizard](https://github.com/gitalexhubuser/Amanda-Lizard)

@@ -2,5 +2,6 @@
 Amanda-Lizard.code-workspace
 settings.py
 Task/
+venv/
 log.log
 __pycache__/
