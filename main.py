@@ -1,11 +1,9 @@
 import os, time, requests, random
 from telegram.ext import MessageHandler, filters, ApplicationBuilder
-# from settings import * # в конце - поменять!!!
-TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") # print("TOKEN: ", TOKEN)
+from dotenv import load_dotenv
 
+load_dotenv()
 
-CHAT_ID = -1001670463029 # work
-# CHAT_ID = -1001729154400 # test
 text_for_send = "man is weak" # человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
@@ -17,7 +15,6 @@ choice3 = random.choice(random_time_list3)
 
 def Send_to_zazerkalie():
     requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={text_for_send}")
-
 
 def task1():
     while True:
@@ -40,20 +37,17 @@ def task1():
 
         time.sleep(1)
 
-
-
 async def message_handler(update, context):
-    if update.message.chat.id == CHAT_ID:
+    if update.message.chat.id == os.getenv("CHAT_ID"):
         user_message = update.message.text
         if "миша" in user_message.lower():
             await update.message.reply_text('Но я не Миша!')
 
 def task2():
-    application = ApplicationBuilder().token(TOKEN).build()
+    application = ApplicationBuilder().token(os.getenv("TOKEN")).build()
     start_handler = MessageHandler(filters.TEXT, message_handler)
     application.add_handler(start_handler)
     application.run_polling()
-
 
 if __name__ == '__main__':
     task2()
