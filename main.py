@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-text_for_send = "man is weak" # человек слаб
+text_for_send = "Man is weak" # Человек слаб
 
 random_time_list1 = [5, 6, 7, 8]
 random_time_list2 = [11, 12, 13, 14]
@@ -38,15 +38,9 @@ def task1():
         time.sleep(1)
 
 async def message_handler(update, context):
-    print(type(update.channel_post.chat.id))
-    # print(update.channel_post.text)
-    # if update.message.chat.id == os.getenv("CHAT_ID"):
     if update.channel_post.chat.id == int(os.getenv("CHAT_ID")):
-        print("DA")
-        # user_message = update.message.text
         user_message = update.channel_post.text
         if "миша" in user_message.lower():
-            # await update.message.reply_text('Но я не Миша!')
             await update.channel_post.reply_text('Но я не Миша!')
 
 def task2():
