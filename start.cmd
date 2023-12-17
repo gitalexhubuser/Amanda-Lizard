@@ -4,5 +4,5 @@ setlocal enabledelayedexpansion
 for %%i in ("%~dp0") do set currentDrive=%%~di
 
 :: Запустить скрипт на текущем диске
-cmd /k "cd /d !currentDrive!\PythonProjects\tray-ytdownloader\venv\Scripts & activate & cd /d !currentDrive!\PythonProjects\tray-ytdownloader & python main.py"
+cmd /k "cd /d !currentDrive!\PythonProjects\Amanda-Lizard\venv\Scripts & activate & cd /d !currentDrive!\PythonProjects\Amanda-Lizard & python main.py"
 @REM pause

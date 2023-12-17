@@ -1,3 +1,0 @@
-Update(channel_post=Message(channel_chat_created=False,chat=Chat(id=-1002097030549, title='Test', type=<ChatType.CHANNEL>, username='coddingTest'),
- date=datetime.datetime(2023, 12, 17, 14, 7, 21, tzinfo=datetime.timezone.utc), delete_chat_photo=False, group_chat_created=False, message_id=19, sender_chat=Chat(id=-1002097030549, title='Test', type=<ChatType.CHANNEL>, username='coddingTest'), supergroup_chat_created=False, text='миша'),
- update_id=592578810)
