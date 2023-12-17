@@ -14,7 +14,7 @@ choice2 = random.choice(random_time_list2)
 choice3 = random.choice(random_time_list3)
 
 def Send_to_zazerkalie():
-    requests.post(f"https://api.telegram.org/bot{TOKEN}/sendMessage?chat_id={CHAT_ID}&text={text_for_send}")
+    requests.post(f"https://api.telegram.org/bot{os.getenv('TOKEN')}/sendMessage?chat_id={os.getenv('CHAT_ID')}&text={text_for_send}")
 
 def task1():
     while True:
@@ -38,10 +38,16 @@ def task1():
         time.sleep(1)
 
 async def message_handler(update, context):
-    if update.message.chat.id == os.getenv("CHAT_ID"):
-        user_message = update.message.text
+    print(type(update.channel_post.chat.id))
+    # print(update.channel_post.text)
+    # if update.message.chat.id == os.getenv("CHAT_ID"):
+    if update.channel_post.chat.id == int(os.getenv("CHAT_ID")):
+        print("DA")
+        # user_message = update.message.text
+        user_message = update.channel_post.text
         if "миша" in user_message.lower():
-            await update.message.reply_text('Но я не Миша!')
+            # await update.message.reply_text('Но я не Миша!')
+            await update.channel_post.reply_text('Но я не Миша!')
 
 def task2():
     application = ApplicationBuilder().token(os.getenv("TOKEN")).build()
@@ -50,5 +56,6 @@ def task2():
     application.run_polling()
 
 if __name__ == '__main__':
+    Send_to_zazerkalie()
     task2()
     task1()
